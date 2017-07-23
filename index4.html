@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>D3_Data</title>
+    <link rel="stylesheet" type="text/css" href="main4.css">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>
+  
+<!--
+    <script>
+var index=["中國國民黨","民主進步黨","時代力量","無黨團結聯盟","親民黨"];
+var color=["blue","green","yellow","gray","orange"];
+var xScale = d3.scale.ordinal()
+      .domain(index)
+      .range(color);
+
+console.log(xScale("親民黨"));
+ console.log(xScale("共產黨"));
+ console.log(xScale("無黨團結聯盟"));
+         console.log(xScale("無黨團結聯盟"));
+
+    </script>
+-->
+    
+    
+        <script>
+var fScale = d3.scale.category20c();
+
+for(var i=0;i<20;i++){
+//  console.log(fScale(i));   
+d3.select("body")
+.append("div")
+.classed("box",true)
+.style({
+  background:fscale(i)
+});
+}
+
+    </script>
+</body>
+</html>
