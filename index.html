@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>D3_Data</title>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+  <script>
+      
+      d3.csv("invoice-taipei.csv",mid,function(dataSet){
+          console.log(dataSet);
+      var body=d3.select("body");
+      var fDataSet=dataSet.filter(function(d){
+          return d["number"]>10000000;
+      });
+      
+      for(var i=0;i<fDataSet.length;i++){
+//              if(dataSet[i]["number"]>10000000){
+                body.append("div").text(fDataSet[i]["industry"]+""+fDataSet[i]["number"]);
+            }
+//      
+                                       });
+       function mid(d){
+            d["number"]= +d["number"];
+            d["amount"]= +d["amount"];
+           return d;
+       }
+    
+  </script>
+    <div></div>
+     <div></div>
+      <script>
+          var arr=[85,60,99,49,77,82];
+          d3.select("body")
+          .selectAll("div")
+          .data(arr)
+          .text(function(d){
+              return d;
+          });
+          
+
+</body>

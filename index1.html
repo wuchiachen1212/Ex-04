@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>D3_Data</title>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var arr = [85, 60, 99, 49, 77, 82];
+
+        blind(arr);
+        render();
+
+
+        function blind(dataSet) { // status 1
+            var selection = d3.select("body")
+                .selectAll("div")
+                .data(dataSet);
+            //status 2
+            selection.enter().append("div");
+            //status 3
+            selection.exit().remove();
+
+        }
+
+        function render() {
+            d3.selectAll("div")
+                .text(function(d, i) {
+                    return (i + 1) + ":" + d;
+
+                })
+                .style({
+                    color: function(d) {
+                        if (d < 70) {
+                            return "red"
+                        } else {
+                            return "black"
+                        }
+
+                    }
+                });
+        }
+    </script>
+    <hr>
+    <script>
+        var arr = [85, 60, 99, 49, 77, 82];
+
+        blind(arr);
+        render();
+
+
+        function blind(dataSet) { // status 1
+            var selection = d3.select("body")
+                .selectAll("div")
+                .data(dataSet);
+            //status 2
+            selection.enter().append("div");
+            //status 3
+            selection.exit().remove();
+
+        }
+
+        function render() {
+            d3.selectAll("div")
+                .text(function(d, i) {
+                    return (i + 1) + ":" + d;
+
+                })
+                .style({
+                    color: function(d) {
+                        if (d < 70) {
+                            return "red"
+                        } else {
+                            return "black"
+                        }
+
+                    }
+                });
+        }
+    </script>
+    
+
+</body>
+
+</html>
